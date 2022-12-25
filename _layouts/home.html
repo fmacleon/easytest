@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+  {% if site.photo %}
+    <img src="{{site.baseurl}}/{{site.photo}}" alt="Site Photo" >
+  {%- endif -%}
+
+    <h1 class="post-title p-name" itemprop="name headline">{{ site.title | escape }}</h1>
+     <section class="contact">
+      {%- if site.title == "Your Company Name LLC" %} 
+        <h3 class="contact-title">Contact me below: (These icons will link to your social media accounts)</h3> 
+      {%- else %} 
+        <h3 class="contact-title">Contact me below: </h3> 
+      {%- endif %}
+      {%- if site.email %} 
+        <a class="u-email" href="mailto:{{ site.email }}"><span title="email"><i class="fa fa-envelope-o"></i></span> {{ site.email }}</a>
+      {%- endif %}
+      {%- include social.html -%}
+    </section> <!-- End Section Contact -->
+  {{ content }}
+  <!--
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+
+  {%- endif -%}
+  -->
+</div>
